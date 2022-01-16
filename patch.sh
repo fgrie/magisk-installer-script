@@ -6,8 +6,9 @@ BUILD_DATE=$(adb shell getprop ro.build.date)
 BUILD_DATE_UTC=$(date +%Y%m%d -d "$BUILD_DATE")
 echo "ROM build date: $BUILD_DATE ($BUILD_DATE_UTC)"
 
-mkdir -p $BUILD_DATE_UTC
-cd $BUILD_DATE_UTC
+$LOCAL_IMG_DIR="images/"
+mkdir -p "$LOCAL_IMG_DIR/$BUILD_DATE_UTC"
+cd "$LOCAL_IMG_DIR/$BUILD_DATE_UTC"
 
 echo "Reboot to recovery..."
 adb reboot recovery
